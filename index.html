@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>for pun</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: 'Courier New', monospace;
+      padding: 50px;
+    }
+    #text {
+      white-space: pre-wrap;
+      font-size: 1.2em;
+    }
+    #button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      background: white;
+      color: black;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="text"></div>
+  <button id="button" onclick="window.location.href='https://your-image-link.com';">ดูรูป</button>
+  <audio id="keySound" src="assets/keypress.mp3"></audio>
+
+  <script>
+    const message = `hi my dear. :)
+
+ลิ้งค์นี้ไม่มีอะไรพิเศษมากเท่ารักที่มีให้ปุนนะแค่อยากจะมาบอกอะไรนิดหน่อยยย :)
+รู้มั้ยที่ผ่านมาไม่ว่าจะกี่วันหรือกี่เดือนไม่ว่าจะคุยกันหรือไม่คุยกัน...
+...ด้วยรักและดุอาร์.`;
+
+    let i = 0;
+    const speed = 50;
+    const textContainer = document.getElementById('text');
+    const keySound = document.getElementById('keySound');
+
+    function typeWriter() {
+      if (i < message.length) {
+        textContainer.innerHTML += message.charAt(i);
+        keySound.currentTime = 0;
+        keySound.play();
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+
+    window.onload = typeWriter;
+  </script>
+</body>
+</html>
